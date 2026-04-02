@@ -465,13 +465,7 @@ class STMSpectraViewer:
         self.y_axis_var.trace_add("write", lambda *args: self.plot_selected_spectra())
         self.invert_y_var = tk.BooleanVar(value=False)
 
-        tk.Checkbutton(
-            row1,
-            text="Invert Y",
-            variable=self.invert_y_var,
-            command=self.plot_selected_spectra
-        ).pack(side="left", padx=10)
-
+        
         # ---------- ROW 2 ----------
         row2 = tk.Frame(control_container)
         row2.pack(fill="x", pady=2)
@@ -498,7 +492,13 @@ class STMSpectraViewer:
             text="KPFM Fit",
             command=self.run_kpfm_fit
         ).pack(side="left", padx=10)
-        
+        tk.Checkbutton(
+            row2,
+            text="Invert Y",
+            variable=self.invert_y_var,
+            command=self.plot_selected_spectra
+        ).pack(side="left", padx=10)
+
     # =========================
     # RIGHT PANEL
     # =========================
